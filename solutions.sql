@@ -4,33 +4,34 @@
 
 -- # 1. Find all subjects sorted by subject
 
-
-
+SELECT subject FROM subjects;
+   
 -- =========================================== --
 
 -- # 2. Find all subjects sorted by location
 
-
+SELECT location FROM subjects;
 
 -- =========================================== --
+
 -- /////////////////////////////////////////// --
 --              W H E R E                      --
 -- /////////////////////////////////////////// --
 
 -- # 3. Find the book "Little Women"
 
-
+SELECT * FROM books WHERE title = 'Little Women';
 
 -- =========================================== --
 
 -- # 4. Find all books containing the word "Python"
 
-
+SELECT * FROM books WHERE title LIKE '%Python%';
 
 -- =========================================== --
 -- # 5. Find all subjects with the location "Main St" sort them by subject
 
-
+SELECT * FROM subjects WHERE location LIKE 'Main St' ORDER BY subject;
 
 -- =========================================== --
 
@@ -40,7 +41,7 @@
 
 -- # 6. Find all books about Computers and list ONLY the book titles
 
-
+SELECT title FROM subjects JOIN books ON books.subject_id=subjects.id WHERE subject = 'Computers';
 
 -- =========================================== --
 -- # 7. Find all books and display a result table with ONLY the following columns
@@ -49,7 +50,7 @@
 -- 	* Author's last name
 -- 	* Book subject
 
-
+SELECT title, authors.first_name, authors.last_name, subject  FROM subjects JOIN books ON books.subject_id = subjects.id JOIN authors ON authors.id = books.author_id;
 
 -- =========================================== --
 -- # 8. Find all books that are listed in the stock table
