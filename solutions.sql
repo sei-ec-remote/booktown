@@ -45,7 +45,7 @@ SELECT title FROM subjects JOIN books ON books.subject_id=subjects.id WHERE subj
 
 -- =========================================== --
 -- # 7. Find all books and display a result table with ONLY the following columns
--- 	* Book title
+-- 	* Book title 
 -- 	* Author's first name
 -- 	* Author's last name
 -- 	* Book subject
@@ -71,12 +71,12 @@ SELECT title, retail, editions.isbn, name FROM books JOIN editions ON  books.id 
 
 -- =========================================== --
 -- # 10. Find all shipments sorted by ship date display a result table with ONLY the following columns:
--- 	* Customer first name
--- 	* Customer last name
--- 	* ship date
--- 	* book title
+-- 	* Customer first name [check]
+-- 	* Customer last name [check]
+-- 	* ship date [check]
+-- 	* book title [check]
 
-
+SELECT customers.first_name, customers.last_name, books.title, shipments.ship_date FROM books JOIN editions ON books.id = editions.book_id JOIN publishers ON publishers.id = editions.publisher_id JOIN shipments ON shipments.isbn = editions.isbn JOIN customers ON customers.id = shipments.customer_id;
 
 -- =========================================== --
 
