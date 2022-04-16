@@ -61,12 +61,13 @@ SELECT title, stock.cost FROM books JOIN editions ON editions.book_id = books.id
 
 -- =========================================== --
 -- # 9. Find the book "Dune" and display ONLY the following columns
--- 	* Book title
--- 	* ISBN number
--- 	* Publisher name
--- 	* Retail price
+-- 	* Book title [check]
+-- 	* ISBN number [check]
+-- 	* Publisher name [check]
+-- 	* Retail price [check]
 
-
+-- Didnt work when I had it as "isbn" instead of "editions.isbn"
+SELECT title, retail, editions.isbn, name FROM books JOIN editions ON  books.id = editions.book_id JOIN publishers ON publishers.id = editions.publisher_id JOIN stock ON stock.isbn = editions.isbn WHERE books.title = 'Dune';
 
 -- =========================================== --
 -- # 10. Find all shipments sorted by ship date display a result table with ONLY the following columns:
