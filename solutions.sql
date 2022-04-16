@@ -57,7 +57,7 @@ SELECT title, authors.first_name, authors.last_name, subject  FROM subjects JOIN
 -- 	* Sort them by retail price (most expensive first)
 -- 	* Display ONLY: title and price
 
-
+SELECT title, stock.cost FROM books JOIN editions ON editions.book_id = books.id JOIN stock ON stock.isbn = editions.isbn ORDER BY stock.cost DESC;
 
 -- =========================================== --
 -- # 9. Find the book "Dune" and display ONLY the following columns
@@ -85,21 +85,26 @@ SELECT title, authors.first_name, authors.last_name, subject  FROM subjects JOIN
 
 -- # 11. Get the COUNT of all books
 
-
+SELECT COUNT (*) from books;
 
 -- =========================================== --
 -- # 12. Get the COUNT of all Locations
 
-
+SELECT COUNT (location) from subjects;
 
 -- =========================================== --
 -- # 13. Get the COUNT of each unique location in the subjects table. Display the count and the location name. (hint: requires GROUP BY).
 
-
+SELECT location, COUNT(location) FROM subjects GROUP BY location;
 
 -- =========================================== --
 -- # 14. List all books. Display the book_id, title, and a count of how many editions each book has. (hint: requires GROUP BY and JOIN)
 
+-- SELECT title, id, COUNT(editions) FROM books JOIN editions ON editions.book_id = books.id GROUP BY title;
+--  SELECT books.title, books.id, COUNT(editions) FROM books JOIN editions ON editions.book_id = books.id GROUP BY title;
+--  SELECT books.title, editions.book_id, COUNT(editions) FROM books JOIN editions ON editions.book_id = books.id GROUP BY title;
+-- Why don't these work ^^^^??? 
 
+SELECT title, COUNT(editions) FROM books JOIN editions ON editions.book_id = books.id GROUP BY title;
 
 -- =========================================== --
