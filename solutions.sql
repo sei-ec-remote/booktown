@@ -51,6 +51,11 @@ ORDER BY stock.retail DESC;
 --publishers.name
 -- 	* Retail price
 --stock.retail
+SELECT books.title, editions.isbn, publishers.name, stock.retail FROM stock
+JOIN editions ON editions.isbn = stock.isbn
+JOIN books on books.id = editions.book_id
+JOIN publishers on publishers.id = editions.publisher_id
+WHERE title = 'Dune';
 
 
 
@@ -59,6 +64,11 @@ ORDER BY stock.retail DESC;
 -- 	* Customer last name
 -- 	* ship date
 -- 	* book title
+SELECT customers.first_name, customers.last_name , shipments.ship_date , books.title FROM customers
+JOIN shipments ON shipments.customer_id = customers.id
+JOIN editions ON editions.isbn = shipments.isbn
+JOIN books on books.id = editions.book_id
+ORDER BY ship_date ASC;
 
 -- ### Grouping and Counting
 
