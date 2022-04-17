@@ -2,37 +2,37 @@
 -- 1. Find all subjects sorted by subject
 --
 SELECT *
-    FROM subjects
-    ORDER BY subject;
+  FROM subjects
+  ORDER BY subject;
 
 -- 2. Find all subjects sorted by location
 --
 SELECT *
-    FROM subjects
-    ORDER BY location;
+  FROM subjects
+  ORDER BY location;
 
 
 -- ### Where
 -- 3. Find the book "Little Women"
 --
 SELECT *
-    FROM books
-    WHERE title = 'Little Women';
+  FROM books
+  WHERE title = 'Little Women';
 
 
 -- 4. Find all books containing the word "Python"
 --
 SELECT *
-    FROM books
-    WHERE title LIKE '%Python%';
+  FROM books
+  WHERE title LIKE '%Python%';
 
 
 -- 5. Find all subjects with the location "Main St" sort them by subject
 --
 SELECT *
-    FROM subjects
-    WHERE location = 'Main St'
-    ORDER BY subject;
+  FROM subjects
+  WHERE location = 'Main St'
+  ORDER BY subject;
 
 
 -- ### Joins
@@ -40,10 +40,10 @@ SELECT *
 -- 6. Find all books about Computers and list ONLY the book titles
 --
 SELECT title
-    FROM books b
-    JOIN subjects s
-    ON s.id = b.subject_id
-    WHERE subject = 'Computers';
+  FROM books b
+  JOIN subjects s
+  ON s.id = b.subject_id
+  WHERE subject = 'Computers';
 
 
 -- 7. Find all books and display a result table with ONLY the following columns
