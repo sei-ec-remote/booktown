@@ -138,12 +138,12 @@
 -- 8. Find all books that are listed in the stock table
 -- 	* Sort them by retail price (most expensive first)
 -- 	* Display ONLY: title and price
-SELECT books.title, stock.cost
-FROM stock
-JOIN editions
-ON editions.isbn = stock.isbn
-JOIN books
-ON books.id = editions.book_id
+-- SELECT books.title, stock.cost
+-- FROM stock
+-- JOIN editions
+-- ON editions.isbn = stock.isbn
+-- JOIN books
+-- ON books.id = editions.book_id
 
 --             title            | cost  
 -- -----------------------------+-------
@@ -158,6 +158,22 @@ ON books.id = editions.book_id
 -- 	* ISBN number
 -- 	* Publisher name
 -- 	* Retail price
+SELECT books.title, editions.isbn, publishers.name, stock.retail
+FROM books
+JOIN editions
+ON books.id = editions.book_id
+JOIN stock
+ON editions.isbn = stock.isbn
+JOIN publishers
+ON publishers.id = editions.publisher_id
+WHERE books.title = 'Dune'
+
+--  title |    isbn    |   name    | retail 
+-- -------+------------+-----------+--------
+--  Dune  | 0441172717 | Ace Books |  21.95
+--  Dune  | 044100590X | Ace Books |  45.95
+
+
 -- 10. Find all shipments sorted by ship date display a result table with ONLY the following columns:
 -- 	* Customer first name
 -- 	* Customer last name
