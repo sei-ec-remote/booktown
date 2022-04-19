@@ -50,15 +50,25 @@
 
 -- ### Where
 -- 3. Find the book "Little Women"
-SELECT *
-FROM books
-WHERE title = 'Little Women'
+-- SELECT *
+-- FROM books
+-- WHERE title = 'Little Women'
 
 --  id  |    title     | author_id | subject_id 
 -- -----+--------------+-----------+------------
 --  190 | Little Women |        16 |          6
 
 -- 4. Find all books containing the word "Python"
+SELECT *
+FROM books
+WHERE title like '%Python%'
+
+--   id   |       title        | author_id | subject_id 
+-- -------+--------------------+-----------+------------
+--  41473 | Programming Python |      7805 |          4
+--  41477 | Learning Python    |      7805 |          4
+-- (2 rows)
+
 -- 5. Find all subjects with the location "Main St" sort them by subject
 
 
