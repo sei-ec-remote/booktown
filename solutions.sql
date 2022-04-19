@@ -216,8 +216,8 @@
 -- ### Grouping and Counting
 
 -- 11. Get the COUNT of all books
-SELECT COUNT(*)
-FROM books
+-- SELECT COUNT(*)
+-- FROM books
 
 --  count 
 -- -------
@@ -225,6 +225,13 @@ FROM books
 -- (1 row)
 
 -- 12. Get the COUNT of all Locations
+SELECT COUNT(location)
+FROM subjects;
+
+--  count 
+-- -------
+--     15
+-- (1 row)
 
 
 -- 13. Get the COUNT of each unique location in the subjects table. Display the count and the location name. (hint: requires GROUP BY).
