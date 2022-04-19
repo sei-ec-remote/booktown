@@ -1,5 +1,29 @@
 -- ### Order
 -- 1. Find all subjects sorted by subject
+SELECT subject
+FROM subjects
+ORDER BY subject
+
+--      subject      
+-- ------------------
+--  Arts
+--  Business
+--  Children's Books
+--  Classics
+--  Computers
+--  Cooking
+--  Drama
+--  Entertainment
+--  History
+--  Horror
+--  Mystery
+--  Poetry
+--  Religion
+--  Romance
+--  Science
+--  Science Fiction
+-- (16 rows)
+
 -- 2. Find all subjects sorted by location
 
 -- ### Where
