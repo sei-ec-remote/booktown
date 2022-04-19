@@ -234,9 +234,9 @@
 -- (1 row)
 
 -- 13. Get the COUNT of each unique location in the subjects table. Display the count and the location name. (hint: requires GROUP BY).
-SELECT location, COUNT(location)
-FROM subjects
-GROUP BY location
+-- SELECT location, COUNT(location)
+-- FROM subjects
+-- GROUP BY location
 
 --      location     | count 
 -- ------------------+-------
@@ -253,3 +253,23 @@ GROUP BY location
 
 
 -- 14. List all books. Display the book_id, title, and a count of how many editions each book has. (hint: requires GROUP BY and JOIN)
+SELECT books.title, COUNT(books.id) as editions
+FROM books
+JOIN editions
+ON books.id=editions.book_id
+GROUP BY books.title
+
+-- -----------------------------+----------
+--  The Tell-Tale Heart         |        2
+--  Bartholomew and the Oobleck |        1
+--  Programming Python          |        1
+--  2001: A Space Odyssey       |        2
+--  Dune                        |        2
+--  The Shining                 |        2
+--  The Velveteen Rabbit        |        1
+--  Little Women                |        1
+--  The Cat in the Hat          |        2
+--  Franklin in the Dark        |        1
+--  Dynamic Anatomy             |        1
+--  Goodnight Moon              |        1
+-- (12 rows)
