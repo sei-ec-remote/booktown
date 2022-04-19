@@ -88,11 +88,11 @@
 -- ### Joins
 
 -- 6. Find all books about Computers and list ONLY the book titles
-SELECT books.title
-FROM books
-JOIN subjects
-ON books.subject_id  = subjects.id
-WHERE subject = 'Computers'
+-- SELECT books.title
+-- FROM books
+-- JOIN subjects
+-- ON books.subject_id  = subjects.id
+-- WHERE subject = 'Computers'
 
 --         title         
 -- ----------------------
@@ -107,6 +107,34 @@ WHERE subject = 'Computers'
 -- 	* Author's first name
 -- 	* Author's last name
 -- 	* Book subject
+SELECT books.title, authors.first_name, authors.last_name, subjects.subject
+FROM books
+JOIN authors
+ON books.author_id=authors.id
+JOIN subjects
+ON books.subject_id=subjects.id
+
+--             title            |    first_name    |  last_name   |     subject      
+-- -----------------------------+------------------+--------------+------------------
+--  Practical PostgreSQL        | John             | Worsley      | Computers
+--  Franklin in the Dark        | Paulette         | Bourgeois    | Children's Books
+--  The Velveteen Rabbit        | Margery Williams | Bianco       | Classics
+--  Little Women                | Louisa May       | Alcott       | Drama
+--  The Shining                 | Stephen          | King         | Horror
+--  Dune                        | Frank            | Herbert      | Science Fiction
+--  Dynamic Anatomy             | Burne            | Hogarth      | Arts
+--  Goodnight Moon              | Margaret Wise    | Brown        | Children's Books
+--  The Tell-Tale Heart         | Edgar Allen      | Poe          | Horror
+--  Programming Python          | Mark             | Lutz         | Computers
+--  Learning Python             | Mark             | Lutz         | Computers
+--  Perl Cookbook               | Tom              | Christiansen | Computers
+--  2001: A Space Odyssey       | Arthur C.        | Clarke       | Science Fiction
+--  The Cat in the Hat          | Theodor Seuss    | Geisel       | Children's Books
+--  Bartholomew and the Oobleck | Theodor Seuss    | Geisel       | Children's Books
+-- (15 rows)
+
+
+
 -- 8. Find all books that are listed in the stock table
 -- 	* Sort them by retail price (most expensive first)
 -- 	* Display ONLY: title and price
