@@ -1,8 +1,8 @@
 -- ### Order
 -- 1. Find all subjects sorted by subject
-SELECT subject
-FROM subjects
-ORDER BY subject
+-- SELECT subject
+-- FROM subjects
+-- ORDER BY subject
 
 --      subject      
 -- ------------------
@@ -25,6 +25,28 @@ ORDER BY subject
 -- (16 rows)
 
 -- 2. Find all subjects sorted by location
+SELECT *
+FROM subjects
+ORDER BY location
+
+--  id |     subject      |     location     
+-- ----+------------------+------------------
+--   8 | History          | Academic Rd
+--   3 | Classics         | Academic Rd
+--  10 | Mystery          | Black Raven Dr
+--   9 | Horror           | Black Raven Dr
+--   0 | Arts             | Creativity St
+--   5 | Cooking          | Creativity St
+--   2 | Children's Books | Kids Ct
+--   7 | Entertainment    | Main St
+--   6 | Drama            | Main St
+--  13 | Romance          | Main St
+--  15 | Science Fiction  | Main St
+--  14 | Science          | Productivity Ave
+--   4 | Computers        | Productivity Ave
+--   1 | Business         | Productivity Ave
+--  11 | Poetry           | Sunset Dr
+--  12 | Religion         | 
 
 -- ### Where
 -- 3. Find the book "Little Women"
