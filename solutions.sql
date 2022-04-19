@@ -59,9 +59,9 @@
 --  190 | Little Women |        16 |          6
 
 -- 4. Find all books containing the word "Python"
-SELECT *
-FROM books
-WHERE title like '%Python%'
+-- SELECT *
+-- FROM books
+-- WHERE title like '%Python%'
 
 --   id   |       title        | author_id | subject_id 
 -- -------+--------------------+-----------+------------
@@ -71,10 +71,37 @@ WHERE title like '%Python%'
 
 -- 5. Find all subjects with the location "Main St" sort them by subject
 
+-- SELECT * 
+-- FROM subjects
+-- WHERE location = 'Main St'
+-- ORDER BY subject
+
+--  id |     subject     | location 
+-- ----+-----------------+----------
+--   6 | Drama           | Main St
+--   7 | Entertainment   | Main St
+--  13 | Romance         | Main St
+--  15 | Science Fiction | Main St
+
+
 
 -- ### Joins
 
 -- 6. Find all books about Computers and list ONLY the book titles
+SELECT books.title
+FROM books
+JOIN subjects
+ON books.subject_id  = subjects.id
+WHERE subject = 'Computers'
+
+--         title         
+-- ----------------------
+--  Practical PostgreSQL
+--  Perl Cookbook
+--  Learning Python
+--  Programming Python
+-- (4 rows)
+
 -- 7. Find all books and display a result table with ONLY the following columns
 -- 	* Book title
 -- 	* Author's first name
