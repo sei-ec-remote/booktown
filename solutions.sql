@@ -158,15 +158,15 @@
 -- 	* ISBN number
 -- 	* Publisher name
 -- 	* Retail price
-SELECT books.title, editions.isbn, publishers.name, stock.retail
-FROM books
-JOIN editions
-ON books.id = editions.book_id
-JOIN stock
-ON editions.isbn = stock.isbn
-JOIN publishers
-ON publishers.id = editions.publisher_id
-WHERE books.title = 'Dune'
+-- SELECT books.title, editions.isbn, publishers.name, stock.retail
+-- FROM books
+-- JOIN editions
+-- ON books.id = editions.book_id
+-- JOIN stock
+-- ON editions.isbn = stock.isbn
+-- JOIN publishers
+-- ON publishers.id = editions.publisher_id
+-- WHERE books.title = 'Dune'
 
 --  title |    isbn    |   name    | retail 
 -- -------+------------+-----------+--------
@@ -179,6 +179,39 @@ WHERE books.title = 'Dune'
 -- 	* Customer last name
 -- 	* ship date
 -- 	* book title
+SELECT customers.first_name, customers.last_name, shipments.ship_date, books.title
+FROM shipments
+JOIN editions
+ON editions.isbn=shipments.isbn
+JOIN books
+ON editions.book_id=books.id
+JOIN customers
+ON shipments.customer_id=customers.id
+
+--  Tammy      | Robinson  | 2001-08-14 13:49:00-07 | Franklin in the Dark
+--  Jean       | Owens     | 2001-08-12 12:09:47-07 | Franklin in the Dark
+--  James      | Clark     | 2001-08-15 11:57:40-07 | Goodnight Moon
+--  Laura      | Bennett   | 2001-08-06 07:49:44-07 | Goodnight Moon
+--  Richard    | Brown     | 2001-08-11 10:52:34-07 | Goodnight Moon
+--  Wendy      | Black     | 2001-08-09 09:30:46-07 | The Velveteen Rabbit
+--  Dave       | Olson     | 2001-08-09 07:30:07-07 | The Velveteen Rabbit
+--  Eric       | Morrill   | 2001-08-07 13:00:48-07 | Little Women
+--  Owen       | Bollman   | 2001-08-05 09:34:04-07 | Little Women
+--  Kathy      | Corner    | 2001-08-13 09:47:04-07 | The Cat in the Hat
+--  James      | Williams  | 2001-08-11 13:34:08-07 | The Cat in the Hat
+--  Owen       | Becker    | 2001-08-12 13:39:22-07 | The Shining
+--  Ed         | Gould     | 2001-08-08 09:53:46-07 | The Shining
+--  Royce      | Morrill   | 2001-08-07 11:31:57-07 | The Tell-Tale Heart
+--  Adam       | Holloway  | 2001-08-14 13:41:39-07 | The Tell-Tale Heart
+--  Jean       | Black     | 2001-08-10 08:29:42-07 | The Tell-Tale Heart
+--  Trevor     | Young     | 2001-08-14 08:42:58-07 | Dune
+--  Kate       | Gerdes    | 2001-08-12 08:46:35-07 | Dune
+--  Christine  | Holloway  | 2001-08-07 11:56:42-07 | 2001: A Space Odyssey
+--  Shirley    | Gould     | 2001-08-15 14:02:01-07 | 2001: A Space Odyssey
+--  Tim        | Owens     | 2001-08-14 07:33:47-07 | Dynamic Anatomy
+
+
+
 
 -- ### Grouping and Counting
 
