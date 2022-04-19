@@ -179,14 +179,14 @@
 -- 	* Customer last name
 -- 	* ship date
 -- 	* book title
-SELECT customers.first_name, customers.last_name, shipments.ship_date, books.title
-FROM shipments
-JOIN editions
-ON editions.isbn=shipments.isbn
-JOIN books
-ON editions.book_id=books.id
-JOIN customers
-ON shipments.customer_id=customers.id
+-- SELECT customers.first_name, customers.last_name, shipments.ship_date, books.title
+-- FROM shipments
+-- JOIN editions
+-- ON editions.isbn=shipments.isbn
+-- JOIN books
+-- ON editions.book_id=books.id
+-- JOIN customers
+-- ON shipments.customer_id=customers.id
 
 --  Tammy      | Robinson  | 2001-08-14 13:49:00-07 | Franklin in the Dark
 --  Jean       | Owens     | 2001-08-12 12:09:47-07 | Franklin in the Dark
@@ -216,6 +216,16 @@ ON shipments.customer_id=customers.id
 -- ### Grouping and Counting
 
 -- 11. Get the COUNT of all books
+SELECT COUNT(*)
+FROM books
+
+--  count 
+-- -------
+--     15
+-- (1 row)
+
 -- 12. Get the COUNT of all Locations
+
+
 -- 13. Get the COUNT of each unique location in the subjects table. Display the count and the location name. (hint: requires GROUP BY).
 -- 14. List all books. Display the book_id, title, and a count of how many editions each book has. (hint: requires GROUP BY and JOIN)
