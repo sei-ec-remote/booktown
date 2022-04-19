@@ -107,12 +107,12 @@
 -- 	* Author's first name
 -- 	* Author's last name
 -- 	* Book subject
-SELECT books.title, authors.first_name, authors.last_name, subjects.subject
-FROM books
-JOIN authors
-ON books.author_id=authors.id
-JOIN subjects
-ON books.subject_id=subjects.id
+-- SELECT books.title, authors.first_name, authors.last_name, subjects.subject
+-- FROM books
+-- JOIN authors
+-- ON books.author_id=authors.id
+-- JOIN subjects
+-- ON books.subject_id=subjects.id
 
 --             title            |    first_name    |  last_name   |     subject      
 -- -----------------------------+------------------+--------------+------------------
@@ -138,6 +138,21 @@ ON books.subject_id=subjects.id
 -- 8. Find all books that are listed in the stock table
 -- 	* Sort them by retail price (most expensive first)
 -- 	* Display ONLY: title and price
+SELECT books.title, stock.cost
+FROM stock
+JOIN editions
+ON editions.isbn = stock.isbn
+JOIN books
+ON books.id = editions.book_id
+
+--             title            | cost  
+-- -----------------------------+-------
+--  The Cat in the Hat          | 30.00
+--  The Shining                 | 24.00
+--  Bartholomew and the Oobleck | 16.00
+--  Franklin in the Dark        | 23.00
+--  Goodnight Moon              | 25.00
+
 -- 9. Find the book "Dune" and display ONLY the following columns
 -- 	* Book title
 -- 	* ISBN number
