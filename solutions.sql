@@ -44,14 +44,14 @@
 -- 8. Find all books that are listed in the stock table
 -- 	* Sort them by retail price (most expensive first)
 -- 	* Display ONLY: title and price
-
---      incorrect but it's my best guess!
-        SELECT 
-        books.title, stock.cost 
-        FROM books, stock 
-        JOIN editions 
-                ON editions.isbn=stock.isbn 
-                AND editions.book_id=books.id;
+        SELECT books.title, stock.cost
+        FROM books
+        JOIN editions
+        ON editions.book_id=books.id
+        JOIN stock
+        ON stock.isbn=editions.isbn
+        ORDER BY stock.cost
+        DESC;
 -- 9. Find the book "Dune" and display ONLY the following columns
 -- 	* Book title
 -- 	* ISBN number
@@ -83,6 +83,14 @@
 -- ### Grouping and Counting
 
 -- 11. Get the COUNT of all books
+        SELECT COUNT(*)
+        FROM books;
 -- 12. Get the COUNT of all Locations
+        SELECT COUNT(subjects.location)
+        FROM subjects;
 -- 13. Get the COUNT of each unique location in the subjects table. Display the count and the location name. (hint: requires GROUP BY).
+        SELECT COUNT(subjects.location), subjects.location 
+        FROM subjects 
+        GROUP BY subjects.location;
 -- 14. List all books. Display the book_id, title, and a count of how many editions each book has. (hint: requires GROUP BY and JOIN)
+        SELECT books.id, books.title, COUNT(editions.book_id) FROM books JOIN editions ON editions.book_id=books.id GROUP BY books.id;
