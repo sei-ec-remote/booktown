@@ -73,6 +73,15 @@
 -- 	* Customer last name
 -- 	* ship date
 -- 	* book title
+    SELECT customers.first_name, customers.last_name, shipments.ship_date, books.title
+    FROM customers
+    JOIN shipments
+    ON shipments.customer_id=customers.id
+    JOIN editions
+    ON editions.isbn=shipments.isbn
+    JOIN books
+    ON books.id=editions.book_id
+    ORDER BY shipments.ship_date;
 
 -- ### Grouping and Counting
 
