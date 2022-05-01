@@ -46,6 +46,14 @@
 -- 8. Find all books that are listed in the stock table
 -- 	* Sort them by retail price (most expensive first)
 -- 	* Display ONLY: title and price
+    SELECT books.title, stock.cost
+    FROM books
+    JOIN editions
+    ON editions.book_id=books.id
+    JOIN stock
+    ON stock.isbn=editions.isbn
+    ORDER BY stock.cost
+    DESC;
 -- 9. Find the book "Dune" and display ONLY the following columns
 -- 	* Book title
 -- 	* ISBN number
