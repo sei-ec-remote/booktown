@@ -28,6 +28,10 @@
 -- ### Joins
 
 -- 6. Find all books about Computers and list ONLY the book titles
+    SELECT title 
+    FROM books 
+    JOIN subjects 
+    ON books.subject_id=subjects.id;
 -- 7. Find all books and display a result table with ONLY the following columns
 -- 	* Book title
 -- 	* Author's first name
