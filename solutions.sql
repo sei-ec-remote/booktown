@@ -19,6 +19,10 @@
     WHERE title 
     LIKE '%Python%';
 -- 5. Find all subjects with the location "Main St" sort them by subject
+    SELECT subject 
+    FROM subjects 
+    WHERE location = 'Main St' 
+    ORDER BY subject;
 
 
 -- ### Joins
