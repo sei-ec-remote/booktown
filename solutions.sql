@@ -14,6 +14,10 @@
     FROM books 
     WHERE title = 'Little Women';
 -- 4. Find all books containing the word "Python"
+    SELECT title 
+    FROM books 
+    WHERE title 
+    LIKE '%Python%';
 -- 5. Find all subjects with the location "Main St" sort them by subject
 
 
