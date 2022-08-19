@@ -72,4 +72,4 @@ SELECT location, COUNT(location) FROM subjects GROUP BY location;
 
 -- 14. List all books. Display the book_id, title, and a count of how many editions each book has. (hint: requires GROUP BY and JOIN)
 
-SELECT title, editions.book_id  FROM books INNER JOIN editions ON books.id = editions.book_id;
+SELECT title, editions.book_id, COUNT(editions.edition)  FROM books INNER JOIN editions ON books.id = editions.book_id GROUP BY books.title, editions.book_id;
