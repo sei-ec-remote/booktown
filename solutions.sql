@@ -66,8 +66,15 @@
 -- 	* ship date
 -- 	* book title
 
+-- shipments has id, customer_id, isbn, ship_date
+-- customers has id, last_name, first_name
 
-
+    SELECT shipments.ship_date, customers.first_name, customers.last_name, books.title
+    FROM shipments
+    JOIN customers ON shipments.customer_id = customers.id
+    JOIN editions ON shipments.isbn = editions.isbn
+    JOIN books ON editions.book_id = books.id
+    ORDER BY shipments.ship_date;
 
 
 
