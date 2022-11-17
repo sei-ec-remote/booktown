@@ -441,10 +441,27 @@ SELECT count(location), location
 
 -- 14. List all books. Display the book_id, title, and a count of how many editions each book has. (hint: requires GROUP BY and JOIN)
 
-SELECT count(editions.book_id), books.title, books.id
+SELECT books.id, books.title, count(editions.book_id) 
+    AS editions_count
     FROM books
-    JOIN editions
-    ON editions.book_id = books.id;
+    JOIN editions 
+    ON books.id = editions.book_id
+    GROUP BY books.id;
+
+  id   |            title            | editions_count 
+-------+-----------------------------+----------------
+  2038 | Dynamic Anatomy             |              1
+ 25908 | Franklin in the Dark        |              1
+  7808 | The Shining                 |              2
+  4267 | 2001: A Space Odyssey       |              2
+ 41473 | Programming Python          |              1
+  1234 | The Velveteen Rabbit        |              1
+  4513 | Dune                        |              2
+  1608 | The Cat in the Hat          |              2
+   190 | Little Women                |              1
+  1501 | Goodnight Moon              |              1
+   156 | The Tell-Tale Heart         |              2
+  1590 | Bartholomew and the Oobleck |              1
 
 
 
